@@ -1,0 +1,35 @@
+.Home {
+    /* put around the vertical center of page */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    margin-top: -75px;
+    background-image: url('img/JoBee.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+  
+.home-button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home-button {
+  margin: 0.25rem;
+}
+
+.JoBee-welcome {
+  background-color: rgba(250, 248, 254, 0.879);
+  width: 60%;
+  padding: 3rem 1rem;
+  border-radius: 5px;
+}
+
+h1 {
+  color: rgb(62, 147, 204);
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}

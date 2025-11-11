@@ -1,0 +1,97 @@
+import axios from "axios";
+
+
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+
+/** API Class.
+ *
+ * Static class tying together methods used to get/send to to the API.
+ *
+ */
+
+class JoBeeApi {
+  // the token for interacting with the API will be stored here.
+  static token = JSON.parse(localStorage.getItem("token")) || null;
+
+  // get request for companies or jobs
+  static async request(endpoint, data = {}, method = "get") {
+    console.debug("API Call:", endpoint, data, method);
+
+    const url = `${BASE_URL}/${endpoint}`;
+    const headers = { Authorization: `Bearer ${JoBeeApi.token}` };
+    const params = (method === "get")
+      ? data
+      : {};
+
+    try {
+      return (await axios({ url, method, data, params, headers })).data;
+    } catch (err) {
+      console.error("API Error:", err.response);
+      let message = err.response.data.error.message;
+      throw Array.isArray(message) ? message : [message];
+    }
+  }
+
+  // Individual API routes
+
+  /** Get details on a company by handle. */
+
+  static async getCompany(handle) {
+    let res = await this.request(`companies/${handle}`);
+    return res.company;
+  }
+
+  /** Log in user given a username and password and get a token */
+  static async login(username, password) {
+    let res = await this.request(`auth/token`,
+      { "username": username, "password": password },
+      "post");
+    JoBeeApi.token = res.token;
+
+    console.log(`res.token `, res.token);
+    console.log(`right after login, localStorage `, localStorage);
+
+    return JoBeeApi.token;
+  }
+
+  /** Register user given a username, password, firstName, lastName, and email,
+   *  then return a token */
+  static async register(username, password, firstName, lastName, email) {
+    let res = await this.request(`auth/register`,
+      {
+        "username": username,
+        "password": password,
+        "firstName": firstName,
+        "lastName": lastName,
+        "email": email
+      },
+      "post");
+    JoBeeApi.token = res.token;
+    return JoBeeApi.token;
+  }
+
+  /** Get the current user given a valid username and token */
+  static async getCurrentUser(username) {
+    console.log(username, "USERNAME INSIDE GETCURRENTUSER")
+    let res = await this.request(`users/${username}`)
+    return res.user;
+  }
+
+    /** Save user profile page. */
+
+    static async saveProfile(username, data) {
+      let res = await this.request(`users/${username}`, data, "patch");
+      return res.user;
+    }
+
+    /** User applies for a job. */
+
+    static async applyToJob(username, id) {
+      console.log("IN API - APPLY TO JOB")
+      let res = await this.request(`users/${username}/jobs/${id}`);
+      return res;
+    }
+
+}
+
+export default JoBeeApi;

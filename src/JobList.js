@@ -1,0 +1,74 @@
+import React, { useEffect, useState } from "react";
+import JoBeeApi from "./api";
+import JobCard from "./JobCard";
+import SearchBox from "./SearchBox";
+
+/**  Makes API call to show all jobs or filter specific jobs 
+ *   by title.
+ * 
+ *   State:
+ *   - jobs: array of jobs objects, like 
+ *    [ { id, title, salary, equity, companyHandle, companyName }, ...]
+ *   - isLoading: boolean to show if the API call is in progress
+ *   - jobTitle: string search term entered by user
+ * 
+ *   App -> Routes -> JobList -> [SearchBox, [JobCard, ...]]
+*/
+function JobList() {
+
+  const [jobs, setJobs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [jobTitle, setJobTitle] = useState("");
+
+  function search(jobTitle) {
+    setJobTitle(jobTitle);
+  }
+
+  useEffect(function getJobsWhenMounted() {
+    async function getJobs() {
+      let jobsResults;
+
+      if (!jobTitle) {
+        jobsResults = await JoBeeApi.request('jobs')
+      } else {
+        jobsResults = await JoBeeApi.request(`jobs?title=${jobTitle}`)
+      }
+      setJobs(jobsResults.jobs);
+      setIsLoading(false);
+    }
+    getJobs();
+  }, [jobTitle]);
+
+  if (isLoading) return <i>Loading...</i>;
+
+  return (
+    <div className="JobList col-md-8 offset-md-2">
+      <SearchBox search={search} />
+      {jobs.length
+        ? (
+          <div>
+            <h1>Jobs</h1>
+            <div className="JobList-list">
+              {jobs.map(job =>
+                <JobCard key={job.id} job={job} />
+              )}
+            </div>
+          </div>
+        ) : (<p className="lead">Sorry, no results were found!</p>)}
+    </div>
+  );
+
+}
+
+export default JobList;
+
+
+
+
+
+
+
+
+
+
+
