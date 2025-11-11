@@ -31,7 +31,7 @@ function App() {
       setCurrentUser("fetching");
 
       let { username } = jwt.decode(token);
-      let user = await JoBeeApi.getCurrentUser(username, token);
+      let user = await JoBeeApi.getCurrentUser(username);
   
       setCurrentUser(user);
     }
