@@ -5,7 +5,7 @@ export const mockCompanies = [
     handle: "acme-corp",
     name: "Acme Corporation",
     description: "Leading provider of innovative solutions in tech and software development.",
-    logoUrl: "https://via.placeholder.com/150?text=Acme",
+    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
     website: "https://acme-corp.com",
     employees: "500-1000"
   },
@@ -13,7 +13,7 @@ export const mockCompanies = [
     handle: "tech-innovations",
     name: "Tech Innovations Inc",
     description: "Cutting-edge tech company specializing in AI and machine learning.",
-    logoUrl: "https://via.placeholder.com/150?text=Tech+Innovations",
+    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Open_AI_logo.svg/1024px-Open_AI_logo.svg.png",
     website: "https://techinnovations.com",
     employees: "200-500"
   },
@@ -21,7 +21,7 @@ export const mockCompanies = [
     handle: "digital-solutions",
     name: "Digital Solutions Ltd",
     description: "Full-service digital agency delivering web and mobile applications.",
-    logoUrl: "https://via.placeholder.com/150?text=Digital+Solutions",
+    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Adobe_Systems_logo_and_wordmark.svg/1024px-Adobe_Systems_logo_and_wordmark.svg.png",
     website: "https://digitalsolutions.io",
     employees: "100-200"
   },
@@ -29,7 +29,7 @@ export const mockCompanies = [
     handle: "cloud-systems",
     name: "Cloud Systems Global",
     description: "Enterprise cloud infrastructure and DevOps solutions provider.",
-    logoUrl: "https://via.placeholder.com/150?text=Cloud+Systems",
+    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png",
     website: "https://cloudsystems.global",
     employees: "1000+"
   },
@@ -37,7 +37,7 @@ export const mockCompanies = [
     handle: "startup-hub",
     name: "StartUp Hub",
     description: "Fast-growing startup providing SaaS solutions for businesses.",
-    logoUrl: "https://via.placeholder.com/150?text=Startup+Hub",
+    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Microsoft_logo_%281989%29.svg/1024px-Microsoft_logo_%281989%29.svg.png",
     website: "https://startuphub.dev",
     employees: "50-100"
   }

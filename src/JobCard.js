@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import "./JobCard.css";
 import formatSalary from "./utilities/formatSalary.js"
 import UserContext from "./UserContext";
-import JoBeeApi from "./api";
 
 /**  Shows title, salary and equity for a job
  * 
@@ -16,14 +15,20 @@ function JobCard({ job }) {
   const { id, title, salary, equity } = job;
   const { currentUser, setCurrentUser } = useContext(UserContext);
   
-  async function handleSubmit() {
-   
-    let jobId = +id;
-    await JoBeeApi.applyToJob(currentUser.username, jobId);
-   
-    let updatedUser = await JoBeeApi.getCurrentUser(currentUser.username)
-    setCurrentUser(updatedUser);
+  function handleApply() {
+    // Add job to applications if not already there
+    if (!currentUser.applications.includes(id)) {
+      const updatedApplications = [...(currentUser.applications || []), id];
+      const updatedUser = {
+        ...currentUser,
+        applications: updatedApplications
+      };
+      setCurrentUser(updatedUser);
+    }
   }
+
+  // Safe check for applications array
+  const hasApplied = currentUser.applications && currentUser.applications.includes(id);
 
   return (
     <div className="JobCard card">
@@ -34,10 +39,10 @@ function JobCard({ job }) {
           ? <p></p>
           : <p>{<small>Equity: {equity}</small>}</p>
         }
-        {!currentUser.applications.includes(id)
+        {!hasApplied
           ?
           <button className="btn btn-primary btn-sm apply-btn"
-            onClick={handleSubmit}
+            onClick={handleApply}
           >
             Apply
           </button>
