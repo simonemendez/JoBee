@@ -13,7 +13,7 @@ const USE_MOCK_DATA = !process.env.REACT_APP_BASE_URL;
 
 class JoBeeApi {
   // the token for interacting with the API will be stored here.
-  static token = JSON.parse(localStorage.getItem("token")) || null;
+  static token = localStorage.getItem("token") || null;
 
   // get request for companies or jobs
   static async request(endpoint, data = {}, method = "get") {
