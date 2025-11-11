@@ -155,3 +155,11 @@ export const mockUsers = {
     applications: []
   }
 };
+
+export const mockUser = {
+  username: "testuser",
+  firstName: "Test",
+  lastName: "User",
+  email: "test@example.com",
+  applications: []
+};
