@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     margin-top: -75px;
-    background-image: url('img/JoBee.jpg');
+  background-image: url('./img/jobly.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
   }
