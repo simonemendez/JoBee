@@ -1,28 +1,28 @@
-.companies-scroll {
+.jobs-scroll {
     max-height: 70vh;
     overflow-y: auto;
     padding-right: 10px;
 }
 
 /* Responsive scrollbar styling */
-.companies-scroll::-webkit-scrollbar {
+.jobs-scroll::-webkit-scrollbar {
     width: 8px;
 }
 
-.companies-scroll::-webkit-scrollbar-track {
+.jobs-scroll::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 10px;
 }
 
-.companies-scroll::-webkit-scrollbar-thumb {
+.jobs-scroll::-webkit-scrollbar-thumb {
     background: #3e93cc;
     border-radius: 10px;
 }
 
-.companies-scroll::-webkit-scrollbar-thumb:hover {
+.jobs-scroll::-webkit-scrollbar-thumb:hover {
     background: #2874a6;
 }
 
-.CompanyList-list {
+.JobList-list {
     padding: 1rem 2rem;
 }

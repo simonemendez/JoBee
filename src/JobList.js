@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import JoBeeApi from "./api";
 import JobCard from "./JobCard";
 import SearchBox from "./SearchBox";
+import "./JobList.css";
 
 /**  Makes API call to show all jobs or filter specific jobs 
  *   by title.
@@ -18,26 +19,27 @@ function JobList() {
 
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [jobTitle, setJobTitle] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
-  function search(jobTitle) {
-    setJobTitle(jobTitle);
+  function search(term) {
+    setSearchTerm(term);
   }
 
   useEffect(function getJobsWhenMounted() {
     async function getJobs() {
       let jobsResults;
 
-      if (!jobTitle) {
+      if (!searchTerm) {
         jobsResults = await JoBeeApi.request('jobs')
       } else {
-        jobsResults = await JoBeeApi.request(`jobs?title=${jobTitle}`)
+        // Pass search term as data object, not URL param
+        jobsResults = await JoBeeApi.request('jobs', { title: searchTerm })
       }
-      setJobs(jobsResults.jobs);
+      setJobs(jobsResults.jobs || []);
       setIsLoading(false);
     }
     getJobs();
-  }, [jobTitle]);
+  }, [searchTerm]);
 
   if (isLoading) return <i>Loading...</i>;
 
@@ -46,7 +48,7 @@ function JobList() {
       <SearchBox search={search} />
       {jobs.length
         ? (
-          <div>
+          <div className="jobs-scroll">
             <h1>Jobs</h1>
             <div className="JobList-list">
               {jobs.map(job =>

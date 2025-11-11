@@ -18,26 +18,27 @@ import "./CompanyList.css";
 function CompanyList() {
   const [companies, setCompanies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [companyHandle, setCompanyHandle] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
-  function search(companyHandle) {
-    setCompanyHandle(companyHandle);
+  function search(term) {
+    setSearchTerm(term);
   }
 
   useEffect(function getCompaniesWhenMounted() {
     async function getCompanies() {
       let companiesResults;
       
-      if (!companyHandle) {
+      if (!searchTerm) {
         companiesResults = await JoBeeApi.request('companies')
       } else {
-        companiesResults = await JoBeeApi.request(`companies?name=${companyHandle}`);
+        // Pass search term as data object, not URL param
+        companiesResults = await JoBeeApi.request('companies', { name: searchTerm });
       }
-      setCompanies(companiesResults.companies);
+      setCompanies(companiesResults.companies || []);
       setIsLoading(false);
     }
     getCompanies();
-  }, [companyHandle]);
+  }, [searchTerm]);
 
   if (isLoading) return <i>Loading...</i>;
 
@@ -46,7 +47,7 @@ function CompanyList() {
       <SearchBox search={search} />
       {companies.length
         ? (
-        <div>
+        <div className="companies-scroll">
             <h1>Companies</h1>
             <div className="CompanyList-list">
               {companies.map(company =>
