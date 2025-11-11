@@ -13,7 +13,7 @@ body {
 
 
 h1, h2, h3, h4, .lead {
-  color: rgb(46, 46, 46);
+  color: #003366;
 }
 
 h4 + p,
@@ -27,14 +27,25 @@ p {
 
 .btn-primary,
 .btn-primary:focus {
-  background-color: rgb(142, 142, 142);
+  background-color: #FF8C42;
   border: none;
   box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.523);
   margin-bottom: 1rem;
 }
 
 .btn-primary:hover {
-  background-color: rgb(108, 108, 108);
+  background-color: #E67E2F;
+}
+
+.btn-secondary,
+.btn-secondary:focus {
+  background-color: #003366;
+  border-color: #003366;
+}
+
+.btn-secondary:hover {
+  background-color: #001a33;
+  border-color: #001a33;
 }
 
 code {

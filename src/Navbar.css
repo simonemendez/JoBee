@@ -1,3 +1,10 @@
+/* Job-Bee theme: Dark blue (#003366) with orange (#FF8C42) accents */
+
+.navbar-custom {
+  background-color: #003366 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .navbar-expand-md {
   width: 100%;
   padding: 1rem;
@@ -12,9 +19,22 @@
 .navbar {
   margin-bottom: 2rem;
   margin-top: -0.25rem;
+  background-color: #003366 !important;
 }
 
 .navbar-brand h4 {
-  color: white;
+  color: #FF8C42;
+  font-weight: bold;
+  margin: 0;
+}
+
+.nav-link {
+  color: white !important;
+  transition: color 0.3s ease;
+  margin-right: 1.5rem;
+}
+
+.nav-link:hover {
+  color: #FF8C42 !important;
 }
 

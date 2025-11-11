@@ -5,7 +5,7 @@ export const mockCompanies = [
     handle: "acme-corp",
     name: "Acme Corporation",
     description: "Leading provider of innovative solutions in tech and software development.",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+    logoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23FF8C42' width='200' height='200'/%3E%3Ctext x='100' y='110' font-size='60' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'%3EAC%3C/text%3E%3C/svg%3E",
     website: "https://acme-corp.com",
     employees: "500-1000"
   },
@@ -13,7 +13,7 @@ export const mockCompanies = [
     handle: "tech-innovations",
     name: "Tech Innovations Inc",
     description: "Cutting-edge tech company specializing in AI and machine learning.",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Open_AI_logo.svg/1024px-Open_AI_logo.svg.png",
+    logoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23003366' width='200' height='200'/%3E%3Ctext x='100' y='120' font-size='50' font-weight='bold' fill='%23FF8C42' text-anchor='middle' font-family='Arial'%3ETI%3C/text%3E%3C/svg%3E",
     website: "https://techinnovations.com",
     employees: "200-500"
   },
@@ -21,7 +21,7 @@ export const mockCompanies = [
     handle: "digital-solutions",
     name: "Digital Solutions Ltd",
     description: "Full-service digital agency delivering web and mobile applications.",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Adobe_Systems_logo_and_wordmark.svg/1024px-Adobe_Systems_logo_and_wordmark.svg.png",
+    logoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23FF8C42' width='200' height='200'/%3E%3Ctext x='100' y='110' font-size='60' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'%3EDS%3C/text%3E%3C/svg%3E",
     website: "https://digitalsolutions.io",
     employees: "100-200"
   },
@@ -29,7 +29,7 @@ export const mockCompanies = [
     handle: "cloud-systems",
     name: "Cloud Systems Global",
     description: "Enterprise cloud infrastructure and DevOps solutions provider.",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png",
+    logoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23003366' width='200' height='200'/%3E%3Ctext x='100' y='120' font-size='50' font-weight='bold' fill='%23FF8C42' text-anchor='middle' font-family='Arial'%3ECG%3C/text%3E%3C/svg%3E",
     website: "https://cloudsystems.global",
     employees: "1000+"
   },
@@ -37,7 +37,7 @@ export const mockCompanies = [
     handle: "startup-hub",
     name: "StartUp Hub",
     description: "Fast-growing startup providing SaaS solutions for businesses.",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Microsoft_logo_%281989%29.svg/1024px-Microsoft_logo_%281989%29.svg.png",
+    logoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23FF8C42' width='200' height='200'/%3E%3Ctext x='100' y='110' font-size='50' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'%3ESH%3C/text%3E%3C/svg%3E",
     website: "https://startuphub.dev",
     employees: "50-100"
   }
