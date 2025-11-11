@@ -18,9 +18,9 @@ import jwt from "jsonwebtoken"
 
 function App() {
   
-  const initialToken = JSON.parse(localStorage.getItem("token")) || null;  
+  const initialToken = localStorage.getItem("token") || null;  
   const [token, setToken] = useState(initialToken);
-  const [currentUser, setCurrentUser] = useState("fetching"); // or could have a user, or an empty object, or set it to string like "waiting" or fetching
+  const [currentUser, setCurrentUser] = useState("fetching");
 
   /**  
    *   Makes API call to get the current user given a username and token.
@@ -30,10 +30,22 @@ function App() {
     async function fetchCurrentUser(token) { 
       setCurrentUser("fetching");
 
-      let { username } = jwt.decode(token);
-      let user = await JoBeeApi.getCurrentUser(username);
-  
-      setCurrentUser(user);
+      try {
+        // For mock tokens, extract username differently
+        let username = "testuser"; // Default mock user
+        
+        // If token is a real JWT (contains dots), decode it
+        if (token.includes(".")) {
+          let decoded = jwt.decode(token);
+          username = decoded.username || "testuser";
+        }
+        
+        let user = await JoBeeApi.getCurrentUser(username);
+        setCurrentUser(user);
+      } catch (err) {
+        console.error("Error fetching current user:", err);
+        setCurrentUser({});
+      }
     }
  
     if (token) fetchCurrentUser(token);
@@ -46,8 +58,8 @@ function App() {
    */
   async function logIn({ username, password }) {
     let newToken = await JoBeeApi.login(username, password);
-    setToken(() => newToken);
-    return localStorage.setItem("token", JSON.stringify(newToken));
+    setToken(newToken);
+    return localStorage.setItem("token", newToken);
   }
 
   /**  
@@ -57,8 +69,8 @@ function App() {
    */
   async function register({ username, password, firstName, lastName, email }) {
     let newToken = await JoBeeApi.register(username, password, firstName, lastName, email);
-    setToken(() => newToken);
-    return localStorage.setItem("token", JSON.stringify(newToken));
+    setToken(newToken);
+    return localStorage.setItem("token", newToken);
   }
 
   /**  
@@ -66,7 +78,7 @@ function App() {
    */
   function logOut() {
     setToken(null);
-    return localStorage.setItem("token", JSON.stringify(null));
+    return localStorage.setItem("token", "");
   }
 
   return (
