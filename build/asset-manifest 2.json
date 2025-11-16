@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/JoBee/static/css/main.5d183187.chunk.css",
+    "main.js": "/JoBee/static/js/main.e6fcde73.chunk.js",
+    "main.js.map": "/JoBee/static/js/main.e6fcde73.chunk.js.map",
+    "runtime-main.js": "/JoBee/static/js/runtime-main.f6797e18.js",
+    "runtime-main.js.map": "/JoBee/static/js/runtime-main.f6797e18.js.map",
+    "static/css/2.f0107f02.chunk.css": "/JoBee/static/css/2.f0107f02.chunk.css",
+    "static/js/2.3fbfd185.chunk.js": "/JoBee/static/js/2.3fbfd185.chunk.js",
+    "static/js/2.3fbfd185.chunk.js.map": "/JoBee/static/js/2.3fbfd185.chunk.js.map",
+    "static/js/3.45390cfa.chunk.js": "/JoBee/static/js/3.45390cfa.chunk.js",
+    "static/js/3.45390cfa.chunk.js.map": "/JoBee/static/js/3.45390cfa.chunk.js.map",
+    "index.html": "/JoBee/index.html",
+    "static/css/2.f0107f02.chunk.css.map": "/JoBee/static/css/2.f0107f02.chunk.css.map",
+    "static/css/main.5d183187.chunk.css.map": "/JoBee/static/css/main.5d183187.chunk.css.map",
+    "static/js/2.3fbfd185.chunk.js.LICENSE.txt": "/JoBee/static/js/2.3fbfd185.chunk.js.LICENSE.txt",
+    "static/media/Home.css": "/JoBee/static/media/jobly.54bdb704.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f6797e18.js",
+    "static/css/2.f0107f02.chunk.css",
+    "static/js/2.3fbfd185.chunk.js",
+    "static/css/main.5d183187.chunk.css",
+    "static/js/main.e6fcde73.chunk.js"
+  ]
+}
