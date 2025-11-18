@@ -10,7 +10,7 @@
 .form-inline {
   display: flex;
   padding: 1rem 2rem;
-  margin-top: -4rem;
+  margin-top: 0;
 }
 
 .searchbutton {

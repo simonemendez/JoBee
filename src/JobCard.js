@@ -17,8 +17,13 @@ function JobCard({ job }) {
   
   function handleApply() {
     // Add job to applications if not already there
+    if (!currentUser || !currentUser.applications) {
+      console.error("User not logged in or applications not initialized");
+      return;
+    }
+    
     if (!currentUser.applications.includes(id)) {
-      const updatedApplications = [...(currentUser.applications || []), id];
+      const updatedApplications = [...currentUser.applications, id];
       const updatedUser = {
         ...currentUser,
         applications: updatedApplications
@@ -28,7 +33,7 @@ function JobCard({ job }) {
   }
 
   // Safe check for applications array
-  const hasApplied = currentUser.applications && currentUser.applications.includes(id);
+  const hasApplied = currentUser && currentUser.applications && currentUser.applications.includes(id);
 
   return (
     <div className="JobCard card">
