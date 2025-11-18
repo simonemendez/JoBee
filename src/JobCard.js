@@ -16,12 +16,23 @@ function JobCard({ job }) {
   const { currentUser, setCurrentUser } = useContext(UserContext);
   
   function handleApply() {
-    // Add job to applications if not already there
-    if (!currentUser || !currentUser.applications) {
-      console.error("User not logged in or applications not initialized");
+    // Safety check - make sure user is logged in
+    if (!currentUser) {
+      console.error("User not logged in");
       return;
     }
     
+    // Initialize applications array if it doesn't exist
+    if (!currentUser.applications) {
+      const updatedUser = {
+        ...currentUser,
+        applications: [id]
+      };
+      setCurrentUser(updatedUser);
+      return;
+    }
+    
+    // Add job to applications if not already there
     if (!currentUser.applications.includes(id)) {
       const updatedApplications = [...currentUser.applications, id];
       const updatedUser = {
@@ -32,7 +43,7 @@ function JobCard({ job }) {
     }
   }
 
-  // Safe check for applications array
+  // Safe check for applications array - default to empty array if undefined
   const hasApplied = currentUser && currentUser.applications && currentUser.applications.includes(id);
 
   return (
