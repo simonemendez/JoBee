@@ -7,11 +7,7 @@ This project uses:
 - Node.js
 - Express
 - Bootstrap
-- PostgreSQL
-- JSONSchema
-- JSON Web Token
-- bcrypt
-
+- Javascript
 ## Live Demo
 - Here is a live demo of the <a href="PLACEHOLDER LINK FOR NETFLY ">JoBE</a> app.
 
