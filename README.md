@@ -1,5 +1,4 @@
-## JoBE
-
+## JoBee
 ### A full-stack job search application that allows users to search jobs and companies, apply to jobs, and update their profiles
 
 This project uses: 
